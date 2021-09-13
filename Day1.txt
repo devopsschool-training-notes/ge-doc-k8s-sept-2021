@@ -104,6 +104,7 @@ create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remov
 Docker Components
 ==================================================
 1. Docker Engine
+
 2. Docker Image
 
 VM Images
@@ -179,7 +180,7 @@ HUMAN -> CLIENT  -----> Server (DockerD)	-----> ContainerD -------> Kernel
 
 
 =============================================================================
-Assigment
+Assigment#1
 --------------------------------- 30 mins
 What is Docker and Container? Details explaination with Image!
 - What is Docker?
@@ -191,18 +192,88 @@ What is Docker and Container? Details explaination with Image!
 
 Where to SUBMIT?
 
-
-
-
-
-
-
-
-
-
-
-
 Docker Installation
+======================================
+35.154.144.75
+centos
+centos123
+
+https://devopsschool.com/tutorial/docker/install-config/docker-install-commuityedition-centos-rhel.html
+
+CE Vs EE
+https://www.devopsschool.com/blog/difference-between-docker-community-edition-ce-vs-docker-enterprise-edition-ee-in-2020/
+
+======================= LAB=================================
+
+  9  docker -v
+   10  sudo systemctl enable docker
+   11  sudo systemctl start docker
+   12  clear
+   13  docker info
+   14  clear
+   15  which docker
+   16  which dockerd
+   17  ps -eaf | grep dockerd
+   18* which container
+   19  ps -eaf | grep containerd
+   20  docker pull httpd
+   21  clear
+   22  docker images
+   23  docker ps
+   24  docker ps -a
+   25  docker create httpd
+   26  docker ps
+   27  docker ps -a
+   28  docker create --name raj1 httpd
+   29  docker ps -a
+   30  clear
+   31  docker ps -a
+   32  docker start raj1
+   33  docker ps -a
+   34  docker stop raj1
+   35  docker ps -a
+   36  docker start raj1
+   37  docker ps -a
+   38  docker ps -a
+   39  clear
+   40  docker restart raj1
+   41  docker ps -a
+   42  docker pause raj1
+   43  docker ps -a
+   44  docker pause 6b131d06d9f2
+   45  docker unpause raj1
+   46  docker ps -a
+   47  clear
+   48  docker ps -a
+   49  docker kill raj1
+   50  docker ps -a
+   51  docker ps
+   52  docker ps -a
+   53  docker start raj1
+   54  docker ps -a
+   55  clear
+   56  docker rm raj1
+   57  docker ps -a
+   58  docker rm 6b131d06d9f2
+   59  docker ps -a
+   60  docker stop 3f52f7a563f5
+   61  docker rm 3f52f7a563f5
+   62  docker p s-a
+   63  clear
+   64  docker ps -a
+   65  docker create --name raj2 httpd
+   66  docker start raj2
+   67  docker stop raj2
+   68  docker start raj2
+   69  docker restart raj2
+   70  docker pause raj2
+   71  docker unpause raj2
+   72  docker kill raj2
+   73  docker rm raj2
+
+Assignment
+========================= Write a post ======================
+What is diff between docker pause/unpause and stop/kill?
 
 
 
