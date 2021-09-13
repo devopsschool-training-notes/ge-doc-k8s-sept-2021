@@ -1,0 +1,223 @@
+Rajesh Kumar
+=====================
+
+9: 00 AM - 5 PM IST
+--------------------------
+Lunch - 1 - 2 PM IST
+
+2 BREAK - 
+	- 15mins
+	10.30 AM 
+	3.30 PM
+-----------------------
+DEMO + LAB = AWS
+============================================
+What is Docker?
+--------------------------------------------
+	TOOL & PLATFORM
+	- Managing Container
+	Release
+		Community 
+		Enterprise
+	Version
+		20.X
+	Golang
+	AKA DOCKER Engine
+	
+
+
+What is Tool?
+--------------
+	SAVE COST
+		- RUNNING APPS IN DATACENTER
+	SAVE TIME	
+		- For running APP
+	IMP* QUALITY
+		- Software Quality
+
+
+What is Container?
+	- Its your APP 
+	- Has 
+		1 MNT
+		1 NET
+		1 PID MAP
+		1 USER
+	- fully indepedent isolat App run time env.
+
+==============================================
+What are the resources needed to run 1 APP?
+==============================================
+
+HARDWARE -> OS -> JAVA -> TOMCAT -> APP
+----------------------------------------
+
+OS
+   KERNAL			FROM WHERE	NEEDED		OS-ALLOWED	OS-CAN
+		ROOTFS		MNT NS		1		1		MUL
+		PID ID		PID NS		1		1		MUL
+		USER		USER NS		1		MUL		MUL
+		NETWORK		NET NS		1		1		MUL	
+
+		CPU+RAM		CGROUPS
+		USER PERM 	CAPABILITIES
+
+
+The kernel is a computer program at the core of a computer's operating system and has complete control over everything in the system. 
+
+====================================================================
+1960 - 2000		2000-2015		2015 ---------		
+-------------------------------------------------------------------'
+Phycial Server		VMs			Container
+		INTERNET
+---------------------------------------------------------------------
+1 Day			3 mins			1 Sec	
+			OS
+			- 1 MNT
+			- 1 NET
+			- MUL USE
+			- 1 PID
+-------------------------------------------------------
+APP			APP
+
+
+
+==================================================
+Docker Architecture
+--------------------------------------------------------
+Human --> Docker client ----RESTFUL----> Docker Server(Deamon) -> ContainerD --> Kernal
+         ----------------------------------------------
+			Docker Engine
+
+
+
+Container LifeCycle
+--------------------------
+create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remove
+
+VMs LifeCycle
+--------------------------
+create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remove
+
+
+
+Docker Components
+==================================================
+1. Docker Engine
+2. Docker Image
+
+VM Images
+	- Create vms
+Docker Image 
+	- Create container
+=====================================
+VM Images =  Docker Images
+----------------------------------
+	FILESYSTEMS
+	- Collection of files/dir
+
+VM Images
+-------------------
+BOOT FILESYSTEMS + ROOT FILESYSTEMS + USER FILESYSTEMS + APP FILESYSTEMS
+------------------------------------------------------------------------
+LINUX KERNAL       UBUNTU             root               ls 
+LINUX KERNAL       UBUNTU             apache 		 apache	
+LINUX KERNAL       UBUNTU             tomcat		 jdk       tomcat  	app
+
+
+Docker Images
+-------------------
+ROOT FILESYSTEMS + USER FILESYSTEMS + APP FILESYSTEMS + APP FILESYSTEMS
+------------------------------------------------------------------------
+UBUNTU             root               ls 
+UBUNTU             apache 		 apache	
+UBUNTU             tomcat		 jdk       tomcat  	app
+
+ONE COPY OF IMAGE
+		--- GET MOUTED TO EACH CONTAINER
+		AKA 
+		1 MNT
+
+FROM 1 Image - You can create multiple Container
+
+TYPES OF FILESYSTEMS
+---------------------------
+BOOT FILESYSTEMS == WINDOWS KERNEL OR LINUX KERNEL
+ROOT FILESYSTEMS == WINDOWS 10 OR WINDOWS 2016 OR UBUNTU OR CENTOS OR REDHAT
+USER FILESYSTEMS ==
+APP FILESYSTEMS  ==
+
+3. Registry
+		Repository
+				Collection of Filesystem(s)
+				--------------------------	
+				        docker image
+
+		a Place where you can get docker image
+		- hub.docker.com
+		- google reg
+		- azure repo
+		- ecr
+		- docker registry
+		- artifactory
+		- nexus
+
+
+4. Docker Container
+--------------------------------------------
+HUMAN -> CLIENT  -----> Server (DockerD)	-----> ContainerD -------> Kernel
+	run image
+			CHECK IMAGE EXIST(YES)
+						1 USER
+						1 MOUNT FROm IMAGE
+						1 NET
+						1 PID MAP
+						------------
+						ATTACH USER TO MNT - NET - PID
+						----------------------------'					
+								Container
+
+
+=============================================================================
+Assigment
+--------------------------------- 30 mins
+What is Docker and Container? Details explaination with Image!
+- What is Docker?
+- What is Container?
+- Benefit of Docker?
+- Docker Architecture
+- Container lifecycle
+- How Docker Works!!
+
+Where to SUBMIT?
+
+
+
+
+
+
+
+
+
+
+
+
+Docker Installation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
