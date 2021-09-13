@@ -275,6 +275,128 @@ Assignment
 ========================= Write a post ======================
 What is diff between docker pause/unpause and stop/kill?
 
+============================================================================
+How to use container?
+===========================
+How to go inside a container?
+exec 
+	You can execute any executable inside a container
+	using -it & /bin/bash - you can go inside a container
+
+ 91  docker ps -a
+   92  docker kill $(docker ps -q)
+   93  docker rm $(docker ps -a -q)
+   94  clear
+   95  docker ps
+   96  docker create httpd
+   97  docker ps
+   98  docker ps -a
+   99  docker  start 9557ca6d48f7
+  100  docker ps -a
+  101  docker exec 9557ca6d48f7 ls
+  102  docker exec 9557ca6d48f7 ls /
+  103  docker exec 9557ca6d48f7 du -hs
+  104  docker exec 9557ca6d48f7 df -k
+  105  clear
+  106  docker exec -it 9557ca6d48f7 /bin/bash
+
+
+attach
+	It get attached to PID 1
+
+179  clear
+  180  docker ps
+  181  docker attach c797df7956d0
+  182  docker ps
+  183  docker attach 15f8ee659698
+  184  clear
+
+
+How to access a container from inside?
+ 109  clear
+  110  docker ps
+  111  docker inspect 9557ca6d48f7
+  112  curl http://172.17.0.2
+  113  docker ps
+  114  clear
+  115  docker ps
+  116  docker create -p 8080:80 --name raj2httpd
+  117  docker create -p 8080:80 --name raj 2httpd
+  118  docker create -p 8080:80 --name raj2 httpd
+  119  docker ps
+====================================================================
+PHYSICAL Server is running     Virutal Server is running  	Container is running	
+AS LONG AS			AS LONG AS			AS LONG AS
+PID 1 running			PID 1 running			PID 1 running
+
+PID 1= SYSTEM			PID 1= SYSTEM			PID 1= ANYTHING
+
+
+RUN
+---------------------------------------------------
+pull + create + start + ATTACHED to container (Attached to PID1)
+
+RUN -d
+---------------------------------------------------
+pull + create + start + DeATTACHED to container (DO NOT Attached to PID1)
+
+  127  docker exec -it 9c4be89df9fb /bin/bash
+  128  docker ps
+  129  docker ps -a
+  130  clear
+  131  ps -eaf
+  132  clear
+  133  docker ps
+  134  clear
+  135  ps
+  136  docker run httpd
+  137  docker ps
+  138  docker ps -a
+  139  clear
+  140  docker run -d httpd
+  141  docker run -d httpd
+  142  docker run -d httpd
+  143  docker ps
+
+  143  docker ps
+  144  history
+  145  clear
+  146  docker ps -a
+  147  docker kill $(docker ps -q)
+  148  docker rm $(docker ps -a -q)
+  149  clear
+  150  docker run ubuntu
+  151  docker ps
+  152  docker ps -a
+  153  docker run -d ubuntu
+  154  docker ps -a
+  155  docker run -d httpd
+  156  docker ps -a
+  157  docker run ubuntu ls
+  158  docker ps -a
+  159  clear
+  160  docker run -it ubuntu
+  161  docker ps -a
+  162  docker run -it ubuntu /bin/bash
+  163  docker p
+  164  docker ps
+  165  clear
+  166  docker run -it ubuntu /bin/bash
+  167  docker ps
+  168  docker run -it ubuntu /bin/bash
+  169  docker ps
+  170  docker run -itd ubuntu /bin/bash
+  171  docker run -itd ubuntu /bin/bash
+  172  docker run -itd ubuntu /bin/bash
+  173  docker run -itd ubuntu /bin/bash
+  174  docker run -itd ubuntu /bin/bash
+  175  docker run -itd ubuntu /bin/bash
+  176  docker ps
+  177  clear
+
+
+
+CONTROL + p + Q
 
 
 
