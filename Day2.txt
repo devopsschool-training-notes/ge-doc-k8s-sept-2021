@@ -1,0 +1,134 @@
+IP - 35.154.112.123
+centos
+centos123
+==========================
+COMMAND
+-----------------------------
+docker create
+docker start
+docker run
+docker pause
+docker exec
+docker ps
+docker stop
+docker kill
+docker inspect
+docker attach
+docker restart
+docker images
+docker rm
+docker info
+docker help
+docker version
+docker unpause
+
+
+https://devopsschool.com/tutorial/docker/commands/
+========================================================
+cp	Copy files/folders between a container and the local filesystem
+ 1003  docker ps
+ 1004  ls
+ 1005  vi raju.txt
+ 1006  docker cp raju.txt 27a24a4dfe05:/tmp
+ 1007  docker exec 27a24a4dfe05 ls /tmp
+ 1008  ls
+ 1009  rm -rf raju.txt
+ 1010  clear
+ 1011  ls
+ 1012  history
+ 1013  docker cp 27a24a4dfe05:/tmp/raju.txt .
+
+diff	Inspect changes to files or directories on a container's filesystem
+
+	ANY FILES/Dir
+	- ADDED
+	- DELETED
+	- CHNAGED
+	----------------------
+	Since a container creating ..u can see using this commands
+
+ 1019  docker run -itd ubuntu
+ 1020  docker ps
+ 1021  docker attach 0945772700b9
+ 1022  docker ps
+ 1023  docker diff 0945772700b9
+ 1024  history
+
+
+port	List port mappings or a specific mapping for the container
+ 1025  clear
+ 1026  docker ps
+ 1027  docker run -d -p 8080:80 httpd
+ 1028  docker ps
+ 1029  docker port 27a24a4dfe05
+ 1030  docker port 0c3918589482
+
+rename	Rename a container
+
+ 1033  docker ps
+ 1034  docker rename 0945772700b9 ramukaka
+ 1035  docker ps
+
+Docker Commands - Monitoring Containers
+Command	Description
+logs	Fetch the logs of a container
+ps	List containers
+stats	Display a live stream of container(s) resource usage statistics
+top	Display the running processes of a container
+events	Get real time events from the server
+
+ 1038  docker ps
+ 1039  docker logs 0945772700b9
+ 1040  docker logs 0945772700b9
+ 1041  docker ps
+ 1042  docker logs 27a24a4dfe05
+ 1043  docker inspect 27a24a4dfe05 | grep -i ip
+ 1044  clear
+ 1045  curl http://172.17.0.2
+ 1046  docker logs 27a24a4dfe05
+ 1047  curl http://172.17.0.2
+ 1048  docker logs 27a24a4dfe05
+ 1049  curl http://172.17.0.2
+ 1050  docker logs 27a24a4dfe05
+
+
+ 1052  clear
+ 1053  docker help ps
+ 1054  docker help create
+
+ 1058  docker stats
+ 1059  docker stats 0c3918589482
+ 1060  ps -eaf | grep 0c3918589482
+ 1061  ps -eaf | grep 82
+ 1062  docker exec 0c3918589482 ps -eaf
+ 1063  docker stats 0c3918589482
+
+ 1060  ps -eaf | grep 0c3918589482
+ 1061  ps -eaf | grep 82
+ 1062  docker exec 0c3918589482 ps -eaf
+ 1063  docker stats 0c3918589482
+ 1064  history
+ 1065  clear
+ 1066  docker ps
+ 1067  docker exec 0945772700b9 ps -eaf
+ 1068  ps -eaf | grep bash
+ 1069  ps -eaf | grep httpd-foreground
+ 1070  ps -eaf | grep httpd
+ 1071  systemctl status httpd
+ 1072  clear
+ 1073  docker ps
+ 1074* docker top 0945772700b
+ 1075  ps -eaf | grep 2626
+
+ 1078  docker events
+
+Asssignment
+--------------------------------------------------------
+update	Update configuration of one or more containers
+wait	Block until one or more containers stop, then print their exit codes
+
+What is docker update and docker wait? Explain with example commands.
+@Bestdevops.com
+
+
+
