@@ -333,7 +333,111 @@ Assignment 2 - Write a POST. - 15 mins
 Title - 5 Differences between CMD and ENTRYPOINT with example.
 
 
- 
+==================================================================================
+Docker Volume
+--------------------------------------------
+How to persist data in containers? Beyong life of a container
+----------------------------
+volume
+=======================================
+volume			/var/lib/docker/volumes
+mountfs			ANYHERE in HOST machine
+tempfs			Only Memory
+
+ 1284  ls
+ 1285  cd volumes/
+ 1286  ls
+ 1287  pwd
+ 1288  clear
+ 1289  docker volume
+ 1290  docker volume ls
+ 1291  docker volume prune
+ 1292  docker volume ls
+ 1293  docker volume create dev
+ 1294  ls
+ 1295  docker volume create qa
+ 1296  ls
+ 1297  docker volume create
+ 1298  ls
+ 1299  docker volume ls
+ 1300  docker volume rm f9997fd7b71591d4e8952ffa4cda63249aa7ddf25b4d417b2fe7bee927bf1046
+ 1301  docker volume ls
+ 1302  ls
+ 1303  docker volume inspect dev
+ 1304  history
+
+ 1305  clear
+ 1306  docker volume ;s
+ 1307  docker volume ls
+ 1308  docker help run
+ 1309  clear
+ 1310  docker run -itd -v dev:/opt/raju ubuntu
+ 1311  docker ps
+ 1312  docker exec 91858d70d29b df -kh
+ 1313  docker exec 91858d70d29b touch /opt/raju/ramu.txt
+ 1314  ls
+ 1315  cd dev/
+ 1316  ls
+ 1317  cd _data/
+ 1318  clear
+ 1319  ls
+ 1320  pwd
+ 1321  touch raka.txt
+ 1322  docker exec 91858d70d29b touch ls /opt/raju/
+ 1323  docker exec 91858d70d29b ls /opt/raju/
+ 1324  docker run -itd -v dev:/opt/raju -v qa:opt/ramuaka ubuntu
+ 1325  docker run -itd -v dev:/opt/raju -v qa:/opt/ramuaka ubuntu
+ 1326  docker ps
+ 1327  docker exec 2ef9dab7a164 df -kh
+ 1328  docker exec 2ef9dab7a164 ls /opt
+ 1329  docker exec 2ef9dab7a164 ls /opt/raju
+ 1330  docker ps
+ 1331  docker stop 2ef9dab7a164
+ 1332  docker stop 91858d70d29b 2ef9dab7a164
+ 1333  docker rm 91858d70d29b 2ef9dab7a164
+ 1334  ;s
+ 1335  ls
+ 1336  docker run -itd -v dev:/opt/raju -v qa:/opt/ramuaka ubuntu
+ 1337  docker ps
+ 1338  docker exec e8e1b012c377 ls /opt/raju
+
+
+
+ 1346  cd /opt/
+ 1347  ls
+ 1348  mkdir bkp
+ 1349  clear
+ 1350  cd bkp/
+ 1351  pwd
+ 1352  docker run -itd -v /opt/bkp:/opt/raju ubuntu
+ 1353  ls
+ 1354  touch dsf fsd fsd f sd fds f sdf sd f
+ 1355  ls
+ 1356  docker ps
+ 1357  docker exec 7547af6d2f5c ls /opt/raju
+ 1358  history
+
+https://www.devopsschool.com/blog/understand-docker-volume-from-beginner-to-deep-dive-level/
+
+Assignment
+
+Post - what is tempfs in docker volume and how it use it?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
