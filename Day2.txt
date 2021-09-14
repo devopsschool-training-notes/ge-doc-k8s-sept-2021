@@ -129,6 +129,103 @@ wait	Block until one or more containers stop, then print their exit codes
 
 What is docker update and docker wait? Explain with example commands.
 @Bestdevops.com
+======================
+docker update --pids-limit 6 test-update2
+
+OCI runtime exec failed: exec failed: container_linux.go:380: starting container process caused: read init-p: connection reset by peer: unknown
+=============================================================
+
+ 1088  clear
+ 1089  docker images
+ 1090  docker info
+ 1091  cd /var/lib/docker
+ 1092  clear
+ 1093  ls
+ 1094  cd overlay2
+ 1095  ls
+ 1096  du -sh .
+ 1097  docker pull ubuntu
+ 1098  docker inspect ubuntu
+ 1099  clear
+ 1100  ls
+ 1101  docker images
+ 1102  docker history ubuntu
+ 1103  ls
+ 1104  cd ..
+ 1105  ls
+ 1106  cd image
+ 1107  ls
+ 1108  cd ..
+ 1109  clear
+ 1110  ls
+ 1111  cd overlay2/
+ 1112  history
+ 1113  clear
+ 1114  ls
+ 1115  cd d2370029e7bd48d5c3205d494fac4d0992d7ecf07f44a40b7d983cb2e7a0c114
+ 1116  ls
+ 1117  cd diff/
+ 1118  ls
+ 1119  ls
+ 1120  cd ..
+ 1121  ls
+ 1122  cd ..
+ 1123  ls
+ 1124  clear
+ 1125  ls
+ 1126  docker run -itd ubuntu
+ 1127  ls
+ 1128  du -sh b4519d6e499194f3e066d980d1dfbf2cf657ecd7c3fb414c15dbfaf608f1f810
+ 1129  du -sh b4519d6e499194f3e066d980d1dfbf2cf657ecd7c3fb414c15dbfaf608f1f810-init
+ 1130  docker run -itd ubuntu
+ 1131  ls
+ 1132  df -kh
+ 1133  clear
+ 1134  df -kh
+ 1135  docker ps
+ 1136  docker stop c093e30bd3a1
+ 1137  df -kh
+ 1138  ls
+ 1139  clear
+ 1140  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/diff/
+ 1141  ls
+ 1142  docker start c093e30bd3a1
+ 1143  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/diff/
+ 1144  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/diff/
+ 1145  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/
+ 1146  docker stop c093e30bd3a1
+ 1147  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/
+ 1148  docker start c093e30bd3a1
+ 1149  ls 1e29c162db0f83f63ae6fab82371a076d6a3f2aa8459e932b2152b28cfe8b1c9/
+ 1150  df -kh
+ 1151  clear
+ 1152  ls
+ 1153  docker ps
+ 1154  docker exec c093e30bd3a1 touch /opt/raju.txt
+ 1155  find . -name raju.txt
+ 1156  docker stop c093e30bd3a1
+ 1157  find . -name raju.txt
+ 1158  docker start c093e30bd3a1
+ 1159  find . -name raju.txt
+ 1160  df -k
+ 1161  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
