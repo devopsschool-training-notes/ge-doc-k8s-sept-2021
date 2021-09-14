@@ -244,13 +244,6 @@ Using Existing Container
  1187  clear
  1188  docker exec 010d8a5656f0 which apache2
 
-Not lazy way?
---------------------------
-Using dockerfile
-	- ONE Layer for each commit
-	--------------------------
-		by docker	
-
 
 
 How to share this images?
@@ -283,11 +276,64 @@ Step 6 - docker push devopsschools/14sept2021
 Step 7 - docker logout
 
 
+Not lazy way?
+--------------------------
+Using dockerfile
+	- ONE Layer for each commit
+	--------------------------
+		by docker	
+
+What is dockerfile?
+	- Its a file
+	- Lines of Instructions for Layer
+	- ONE LINE == ONE LAYER
+	- Layer is created from a container of the previous layer
+
+
+FROM ubuntu
+MAINTAINER Rajesh kumar rajesh@devopsschool.com
+RUN apt-get update
+RUN apt-get install git -y
+RUN DEBIAN_FRONTEND="noninteractive" apt-get -y install tzdata
+RUN apt-get install apache2 -y
+COPY index.html /opt
+ENV JAVA_HOME=/opt/java
 
 
 
 
+docker run -d -p 8080:80 -p 8081:81 httpd
 
+https://github.com/jenkinsci/docker/blob/587b2856cd225bb152c4abeeaaa24934c75aa460/Dockerfile
+
+How to set PID1?
+-----------------------------
+CMD
+ENTRYPOINT
+
+CMD VS ENTRYPOINT
+----------------------------
+CMD can be replaced.
+ENTRYPOINT can not be replaced
+commands passed to a entrypoint would be come param to entrypoint.
+
+/sbin/tini -- /usr/… ls
+
+==================================================
+Lab === 15 mins
+
+Assignment 1 - 15 mins
+https://devopsschool.com/tutorial/docker/dockerfile/dockerfile-example-sample-lab.html
+- Build & Use
+- What about if you 2 CMD
+- What about if you 2 ENRTYPOINT
+- What about if you 1 ENRTYPOINT 1 CMD
+
+Assignment 2 - Write a POST. - 15 mins
+Title - 5 Differences between CMD and ENTRYPOINT with example.
+
+
+ 
 
 
 
