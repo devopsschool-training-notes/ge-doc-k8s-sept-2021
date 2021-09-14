@@ -211,9 +211,76 @@ OCI runtime exec failed: exec failed: container_linux.go:380: starting container
  1161  history
 
 
+=================================
+Create an Image?
+
+lazy way?
+--------------------------
+Using Existing Container
+	- ONE Layer for each commit
+	----------------------------
+		by me
+
+
+ 1168  docker run -itd ubuntu
+ 1169  docker ps
+ 1170  docker attach a7f64e2a1e77
+ 1171  clear
+ 1172  docker ps
+ 1173  docker exec a7f64e2a1e77 git
+ 1174  clear
+ 1175  docker ps
+ 1176  docker exec bcc98cc9a387 git
+ 1177  docker commit -m"ub-up-git-apache" -a "Rajesh Kumar" a7f64e2a1e77 rajesh
+ 1178  docker images
+ 1179  docker history ubuntu
+ 1180  docker history rajesh
+ 1181  docker inspect rajesh
+ 1182  clear
+ 1183  docker images
+ 1184  docker run -itd rajesh
+ 1185  docker ps
+ 1186  docker exec 010d8a5656f0 git
+ 1187  clear
+ 1188  docker exec 010d8a5656f0 which apache2
+
+Not lazy way?
+--------------------------
+Using dockerfile
+	- ONE Layer for each commit
+	--------------------------
+		by docker	
 
 
 
+How to share this images?
+--------------------------------
+1. Using tar ball
+ 1191  docker kill $(docker ps -q)
+ 1192  docker rm $(docker ps -a -q)
+ 1193  clear
+ 1194  docker images
+ 1195  docker save -o rajesh.tar rajesh
+ 1196  ls
+ 1197  docker images
+ 1198  docker rmi rajesh
+ 1199  clear
+ 1200  ls
+ 1201  docker images
+ 1202  docker load -i rajesh.tar
+ 1203  docker images
+ 1204  docker run -itd rajesh
+
+
+2. Using hub.docker.com
+
+Step 1 - Register / Validate / Login to hub.docker.com
+Step 2 - Create a repository	e.g - devopsschools/14sept2021 == IMAGENAME
+Step 3 - COND - Repo Name in Local MUST match with Repo name of hub
+Step 4 - docker tag rajesh devopsschools/14sept2021
+Step 5 - docker login
+Step 6 - docker push devopsschools/14sept2021 
+Step 7 - docker logout
 
 
 
