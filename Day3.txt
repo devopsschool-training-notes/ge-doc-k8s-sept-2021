@@ -178,14 +178,51 @@ Title
 Assignment#1 - What is Kubernetes and its feature
 Assignment#2 - How kubernetes works? Explain each components with Short Summary
 
+=================================================================
+
+Master + Workstation = 15.206.91.230
+centos
+centos123
+=======================================
+https://www.devopsschool.com/blog/how-to-change-the-cgroup-driver-from-cgroupfs-systemd-in-docker/
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+
+Worker	= 3.109.216.102
+============================
 
 
 
+====================================================================================
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+====================================================================================
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+====================================================================================
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.22.14:6443 --token szx068.id2y3xv1uuawyvb3 \
+        --discovery-token-ca-cert-hash sha256:b990afd0f9b6a76a283e55960294674f08f5d43f9d8555c3c11925ca1287e903
 
 
 
-
-
+    4  kubectl
+    5  kubectl version
+    6  kubectl help
+    7  kubectl cluster-info
+    8  kubectl get nodes
+   12  kubectl get pods --all-namespaces
+   13  kubectl api-resources
+   14  kubectl api-resources | wc -l
 
 
 
