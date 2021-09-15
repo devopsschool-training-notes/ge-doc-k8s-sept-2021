@@ -118,6 +118,83 @@ https://devopsschool.com/tutorial/docker/labs/index.html
 Assignment - 15 mins
 Title of Post ->  List out 10 Feature of Docker-compose
 
+Docker Compose Example Collection
+
+docker-compose-1.yaml
 
 
 Kubernetes
+====================================
+
+
+Master AKA Control Plane
+- API Server		-> POD -> Container -> Docker Image -> Google Registry
+- ETCD			-> POD -> Container -> Docker Image -> Google Registry
+- Controller mgmr	-> POD -> Container -> Docker Image -> Google Registry
+- Schedular		-> POD -> Container -> Docker Image -> Google Registry
+
+- Kube Proxy		-> POD -> Container -> Docker Image -> Google Registry
+- Kubectl
+- Kubelet
+- Docker
+- kubeadm init
+
+Worker AKA Node AKA Minion
+- Kubelet
+- Docker
+- Kubectl
+- kubeadm join
+- Kube Proxy		-> POD -> Container -> Docker Image -> Google Registry
+
+
+Workstation  AKA Laptop
+- Kubectl
+	- Package
+
+How to setup a clustor?
+https://github.com/kelseyhightower/kubernetes-the-hard-way
+
+Manual way
+- Kubeadm
+
+Manual way but with Cloud Integ
+- kops
+
+Managed Clustor
+- Azure - AKS
+- Aws - EKS
+- GC - GKE
+
+Dev Clustor
+- minikube - Create VM
+	
+
+Multi Clustor
+- kind
+
+============================================================
+
+Title 
+Assignment#1 - What is Kubernetes and its feature
+Assignment#2 - How kubernetes works? Explain each components with Short Summary
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
