@@ -1,0 +1,123 @@
+Docker Compose
+===================================
+13.232.89.6
+username - centos
+password - centos123
+=======================================================
+What is Docker Compose
+-------------------------------------
+- tool
+	reads
+		docker-compose.yaml
+		contains
+			Services
+
+
+Services:
+	Service1
+		build: dockerfile
+		image: imagename
+		env
+		port
+		volume
+		net
+
+	Service2
+		build
+		image
+		env
+		port
+		volume
+		net
+
+	Service3
+		build
+		image
+		env
+		port
+		volume
+		net
+-----------------------------------------------
+		docker-compose up
+		docker-compose down
+		docker-compose up/down Service1
+
+How to insall docker-compose?
+ 1002  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(-$(uname -m)" -o /usr/local/bin/docker-compose
+ 1003  sudo chmod +x /usr/local/bin/docker-compose
+ 1004  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+ 1005  docker-compose --version
+
+
+https://devopsschool.com/tutorial/docker/labs/index.html
+
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      - ./wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+  db:
+    image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    ports:
+      - 3306:3306 # change ip if required
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wordpress-network
+networks:
+  wordpress-network:
+      driver: bridge
+
+ 1018  docker-compose.yaml
+ 1019  vi docker-compose.yaml
+ 1020  docker-compose up -d
+ 1021  clear
+ 1022  docker-compose ps
+ 1023  docker-compose down
+ 1024  docker-compose ps
+ 1025  docker-compose up -d
+ 1026  docker ps
+ 1027  docker-compose stop
+ 1028  docker ps -a
+ 1029  clear
+ 1030  docker-compose start
+ 1031  docker-compose ps
+ 1032  docker-compose logs
+ 1033  clear
+ 1034  docker-compose help
+ 1035  clear
+ 1036  docker-compose ps
+ 1037  docker-compose help scale
+ 1038  docker-compose scale wordpress=3
+ 1039  clear
+ 1040  history
+
+
+=================================================================================
+Lab - 15 mins
+& Review
+https://devopsschool.com/tutorial/docker/labs/index.html
+
+Assignment - 15 mins
+Title of Post ->  List out 10 Feature of Docker-compose
+
+
+
+Kubernetes
