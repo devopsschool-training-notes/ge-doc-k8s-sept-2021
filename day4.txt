@@ -428,6 +428,98 @@ kubectl create service clusterip rajesh --tcp=5678:80 -n=rajesh
   439  curl http://10.104.107.227:5678
   440  watch curl http://10.104.107.227:5678
 
+=========================================================
+Available Commands:
+  clusterip    Create a ClusterIP service
+  externalname Create an ExternalName service
+  loadbalancer Create a LoadBalancer service
+  nodeport     Create a NodePort service
+
+clusterip = 
+		Service would be created
+		Accessible inside a clsuter
+
+nodeport
+		Service would be created & Accessible inside a clsuter
+		This Service would be port-forward at each NODE of clsuter
+
+loadbalancer
+		Service would be created & Accessible inside a clsuter
+		This Service would be port-forward at each NODE of clsuter
+		& 
+		Create LB at CLOUD(aws) and add all Node of the clsuter into that.
+
+
+kubectl create service loadbalancer rajesh2 --tcp=5678:80 -n=rajesh 
+==============================================================================
+kubectl create deployment rajesh --image=scmgalaxy/nginx-devopsschoolv1 --replicas=10 -n=rajesh
+kubectl expose deploy rajesh --port=80 --target-port=80 --type=LoadBalancer --name=rajesh4 -n=rajesh
+
+============================================================================
+STORAGE TYPES
+	---- BLOCK STOR
+	----- OBEJCT
+	----- NETWROK
+===================================================
+BLOCK + OBJECT + NETWORK
+----------------------------
+	Volume plugins - 20+++
+	-----------
+	Control Plane
+
+HOSPATH
+=========================
+
+ADMIN WORK
+	- ADD a VOLUME	- pv
+
+
+USER WORK 
+	- CLAIM A VOLUME - pvc	
+	- ATTACH TO POD
+	- MOUNT INSIDE A CONTAINER
+
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+https://www.devopsschool.com/blog/persistentvolume-persistentvolumeclaim-volumes-using-hostpath/
+https://www.devopsschool.com/blog/kubernetes-volume-hostpath-explained-with-examples/
+
+
+https://www.devopsschool.com/blog/setup-nfs-server-and-use-inside-a-kubernetes-pods-in-rhel-centos7/
+https://www.devopsschool.com/blog/kubernetes-persistentvolume-and-persistentvolumeclaim-using-nfs-volume-types/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
