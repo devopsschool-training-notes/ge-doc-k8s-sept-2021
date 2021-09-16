@@ -185,4 +185,161 @@ Troubleshooting and Debugging Commands:
   238  kubectl auth can-i delete pod
   239  kubectl auth can-i delete ns
   240  history
+========================================================
+ReplicationController
+========================================================
+1 POD ---> Pod
+Many PODs --> ReplicationController
+
+Replication	-> Replicate to Many PODS
+Controller	-> DESIRE NUm == Actual Num of Pods
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  # Unique key of the ReplicationController instance
+  name: rajesh
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      # Run the nginx image
+      - name: nginx
+        image: scmgalaxy/nginx-devopsschoolv1
+
+
+ 243  vi rc1.yaml
+  244  kubectl create -f rc1.yaml -n=rajesh
+  245  vi rc1.yaml
+  246  kubectl create -f rc1.yaml -n=rajesh
+  247  kubectl get rc
+  248  kubectl get rc -n=rajesh
+  249  kubectl get pods -n=rajesh
+  250  kubectl get rc -n=rajesh
+  251  kubectl edit rc -n=rajesh
+  252  kubectl get rc -n=rajesh
+  253  vi rc1.yaml
+  254  kubectl apply -f rc1.yaml
+  255  vi rc1.yaml
+  256  kubectl get rc -n=rajesh
+  257  vi rc1.yaml
+  258  kubectl apply -f rc1.yaml -n=rajesh
+  259  kubectl get rc -n=rajesh
+  260  kubectl delete rc rajesh
+  261  kubectl delete -f rc1.yaml -n=rajesh
+  262  kubectl apply -f rc1.yaml -n=rajesh
+  263  kubectl describe rc rajesh -n=rajesh
+  264  clear
+  265  kubectl get rc -n=rajesh
+  266  kubectl apply -f rc1.yaml -n=rajesh
+  267  kubectl delete  -f rc1.yaml -n=rajesh
+  268  clear
+  269  ls
+  270  kubectl apply -f rc1.yaml -n=rajesh
+  271  kubectl get rc -n=rajesh
+  272  kubectl edit rc -n=rajesh
+  273  kubectl apply -f rc1.yaml -n=rajesh
+  274  kubectl edit rc -n=rajesh
+  275  kubectl get rc -n=rajesh
+  276  kubectl get nodes
+  277  clear
+  278  kubectl get pods -n=rajesh
+  279  clear
+  280  kubectl edit rc -n=rajesh
+  281  kubectl get pods -n=rajesh
+  282  kubectl edit rc -n=rajesh
+  283  kubectl get pods -n=rajesh
+  284  clear
+  285  kubectl get pods -n=rajesh
+  286  kubectl scale -h
+  287  clear
+  288  ls
+  289  kubectl scale --replicas=1 rc/rajesh
+  290  kubectl scale --replicas=1 rc/rajesh -n=rajesh
+  291  kubectl get rc -n=rajesh
+  292  kubectl scale --replicas=10 rc/rajesh -n=rajesh
+  293  kubectl get rc -n=rajesh
+  294  kubectl get pods -n=rajesh
+  295  kubectl delete pod rajesh-vd6db rajesh-s5z5q rajesh-q2clv rajesh-h5k55 rajesh-b2n8s -n=rajesh
+  296  kubectl get pods -n=rajesh
+
+
+ReplicationController === Deprecated in favour of ReplicaSets
+ReplicationController + BUGS fixed == ReplicaSets
+
+
+Deployment
+============================================================
+Replication + Controller
+===========================
+      ReplicaSets
+
+Versioning
+Rollout
+RollBack
+
+Image
+- scmgalaxy/nginx-devopsschoolv1
+- scmgalaxy/nginx-devopsschoolv2
+
+
+
+kubectl create deployment rajesh --image=scmgalaxy/nginx-devopsschoolv1 --replicas=3 -n=rajesh
+
+CREATE 				VS APPLY
+--------------------------------------------------------------
+NEW OBJECT			NEW OBJECT if It does not exist
+
+IF OBJECT EXIST - IT FAIL	If Exist - Update it
+
+
+
+  304  ls
+  305  kubectl create -h
+  306  clear
+  307  kubectl create deployment -h
+  308  clear
+  309  kubectl get deploy
+  310  kubectl get deploy -n=rajesh
+  311  kubectl create deployment rajesh --image=scmgalaxy/nginx-devopsschoolv1 --replicas=3 -n=rajesh
+  312  kubectl get deploy -n=rajesh
+  313  kubectl get pods -n=rajesh
+  314  kubectl get deploy -n=rajesh
+  315  kubectl decribe deploy rajesh -n=rajesh
+  316  kubectl describe deploy rajesh -n=rajesh
+  317  kubectl get rs -n=rajesh
+  318  kubectl get pods -n=rajesh
+  319  kubectl describe pod rajesh-68f6b594ff-2jlkn -n=rajesh
+  320  clear
+  321  kubectl get deploy -n=rajesh
+  322  kubectl edit deploy -n=rajesh
+  323  kubectl get deploy -n=rajesh
+  324  kubectl scale -h
+  325  clear
+  326  kubectl scale --replicas=1 deploy/rajesh -n=rajesh
+  327  kubectl get deploy -n=rajesh
+  328  kubectl scale --replicas=10 deploy/rajesh -n=rajesh
+  329  kubectl get deploy -n=rajesh
+  330  kubectl delete deploy rajesh -n=rajesh
+  331  kubectl get deploy -n=rajesh
+  332  history
+
+
+Assignment
+--------------------------------
+Write a post on Bestdevops.com
+------------------------------------------
+Define kubernetes ReplicaSets with Example and commands
+
+
+
+
+
+
+
 
