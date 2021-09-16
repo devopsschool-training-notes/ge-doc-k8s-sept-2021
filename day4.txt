@@ -372,6 +372,68 @@ $ kubectl rollout undo deploy/rajesh --to-revision=1 -n=rajesh
 $ kubectl rollout status deploy/rajesh -n=rajesh
 $ kubectl get pods -o wide -n=rajesh
 $ curl http://ip-of-pod
+====================================================
+
+Loadbalancer 
+	For What?
+		- POD
+
+Types
+- Network Loadbalancers	= Service
+- Application Lb = ingress
+
+
+
+
+
+- scmgalaxy/nginx-devopsschoolv1
+- scmgalaxy/nginx-devopsschoolv2
+
+
+kubectl create service clusterip rajesh --tcp=5678:80 -n=rajesh
+
+
+
+
+ 409  kubectl apply -f pod1.yaml
+  410  kubectl delete -f pod1.yaml
+  411  kubectl delete -f pod1.yaml -n=rajesh
+  412  kubectl apply -f pod1.yaml -n=rajesh
+  413  kubectl apply -f pod2.yaml -n=rajesh
+  414  clear
+  415  kubectl get pods -n=rajesh
+  416  kubectl get pods -n=rajesh -o wide
+  417  curl http://10.36.0.2
+  418  curl http://10.44.0.7
+  419  clear
+  420  kubectl create service -h
+  421  kubectl create service clusterip -h
+  422  clear
+  423  kubectl get svc
+  424  kubectl get svc -n=rajesh
+  425  kubectl create service clusterip rajesh --tcp=5678:80 -n=rajesh
+  426  kubectl get svc -n=rajesh
+  427  kubectl describe svc rajesh -n=rajesh
+  428  kubectl get svc rajesh -n=rajesh --show-labels
+  429  kubectl get pods -n=rajesh --show-labels
+  430  kubectl edit svc rajesh -n=rajesh
+  431  kubectl get svc rajesh -n=rajesh --show-labels
+  432  kubectl get pods -n=rajesh --show-labels
+  433  kubectl describe svc rajesh -n=rajesh
+  434  kubectl edit svc rajesh -n=rajesh
+  435  kubectl get pods -n=rajesh --show-labels
+  436  kubectl get svc rajesh -n=rajesh --show-labels
+  437  kubectl describe svc rajesh -n=rajesh
+  438  curl http://10.104.107.227
+  439  curl http://10.104.107.227:5678
+  440  watch curl http://10.104.107.227:5678
+
+
+
+
+
+
+
 
 
 
