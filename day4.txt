@@ -337,9 +337,41 @@ Write a post on Bestdevops.com
 Define kubernetes ReplicaSets with Example and commands
 
 
+Versioning
+
+Rollout
+
+RollBack
+
+https://www.devopsschool.com/blog/kubernetes-deployment-strategy-explained-with-example/
+
+Image
+- scmgalaxy/nginx-devopsschoolv1
+- scmgalaxy/nginx-devopsschoolv2
 
 
+Rollout
 
+$ kubectl create deployment rajesh --image=scmgalaxy/nginx-devopsschoolv1 --replicas=10 -n=rajesh
+$ kubectl rollout history deploy/rajesh -n=rajesh
+$ kubectl rollout status deploy/rajesh -n=rajesh
+$ kubectl scale --replicas=1 deploy/rajesh -n=rajesh
+$ kubectl scale --replicas=15 deploy/rajesh -n=rajesh
+$ kubectl get pods -o wide -n=rajesh
+$ curl http://ip-of-pod -n=rajesh
+$ kubectl edit deploy/rajesh -n=rajesh # Change image to scmgalaxy/nginx-devopsschoolv2 
+$ kubectl rollout history deploy/rajesh -n=rajesh
+$ kubectl rollout status deploy/rajesh -n=rajesh
+$ kubectl get pods -o wide -n=rajesh
+$ curl http://ip-of-pod -n=rajesh
+
+Rollback
+
+$ kubectl rollout history deploy/my-dep
+$ kubectl rollout undo deploy/rajesh --to-revision=1 -n=rajesh
+$ kubectl rollout status deploy/rajesh -n=rajesh
+$ kubectl get pods -o wide -n=rajesh
+$ curl http://ip-of-pod
 
 
 
