@@ -487,27 +487,53 @@ https://www.devopsschool.com/blog/kubernetes-volume-hostpath-explained-with-exam
 https://www.devopsschool.com/blog/setup-nfs-server-and-use-inside-a-kubernetes-pods-in-rhel-centos7/
 https://www.devopsschool.com/blog/kubernetes-persistentvolume-and-persistentvolumeclaim-using-nfs-volume-types/
 
+===================================================================================================
+
+Authentication and Authorization
+https://www.devopsschool.com/blog/understanding-authentication-authorization-in-kubernetes/
+
+Authentication – How User’s access should be allowed? The process or action of verifying the identity of a user or process
+
+Certificate	- WE Are using cert kubectl
+Token		- kubeadm join
+OpenID
+Web Hook
+
+
+- User (or administrator on behalf of user) creates a private key.
+- User/administrator generates a certificate signing request (CSR).
+- Administrator approves the request and signs it with their CA.
+- Administrator provides the resulting certificate back to the user.
+
+Authorization – What Access and till what extent should be accessible to user
+
+Node
+ABAC
+RBAC [ FOCUS ]
+Webhook
+
+RBAC
+=====================================================================================
+
+
+https://www.devopsschool.com/blog/kubernetes-ingress-tutorials-with-examples-and-lab-using-nodeport/
 
 
 
 
+http://www.rajesh.com/red --- S1
+http://www.rajesh.com/blue --- S2
+
+http://red.rajesh.com/ --- S3
+http://blue.rajesh.com/ --- S4
 
 
 
+Feedback - Google Map
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Trainer Details - 
+www.RajeshKumar.xyz
+rajesh@devopsschool.com
 
 
 
