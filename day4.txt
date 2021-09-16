@@ -1,0 +1,188 @@
+Workstation
+IP - 65.2.126.205
+centos
+centos123
+
+==============================
+What Do you want?
+========================================
+Namespace
+POD
+ReplicationController
+Deployment
+Services
+Storage
+RBAC
+================================
+What is Namespace?
+What is POD?
+==================================================
+API Server ---> API (Each API is 1 FEA).eg POD - NS
+
+CRUD == GET POST PUT DELETE
+----------------------------------
+Create
+	CMD
+		create
+	YAML 
+		create -f
+
+Read
+	CMD
+		get 
+		describe
+	YAML
+		get -f  
+
+Update
+	CMD
+		edit 
+	YAML 
+		apply -f 
+
+Delete
+	CMD	
+		delete
+	YAML 
+		delete -f 
+
+=============================================
+
+  131  kubectl get nodes
+  132  clear
+  133  kubectl get ns
+  134  kubectl get pods -n=kube-system
+  135  clear
+  136  kubectl
+  137  clear
+  138  kubectl create ns dev
+  139  kubectl create ns rajesh
+  140  kubectl get ns
+  141  kubectl describe ns dev
+  142  clear
+  143  ls
+  144  kubectl edit ns dev
+  145  kubectl describe ns dev
+  146  kubectl get ns
+  147  kubectl delete dev
+  148  kubectl delete ns dev
+  149  clear
+  150  kubectl get ns
+
+=================================================
+
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rajesh
+  labels:
+    app: helloworld
+spec:
+  containers:
+  - name: devopsschool1
+    image: scmgalaxy/nginx-devopsschoolv1
+    ports:
+    - name: nginx-port
+      containerPort: 80
+
+
+ 156  mkdir rajesh
+  157  cd rajesh/
+  158  ls
+  159  kubectl
+  160  kubectl api-resources
+  161  clear
+  162  kubectl get ns
+  163  ls
+  164  vi pod1.yaml
+  165  kubectl create -f pod1.yaml -n=rajesh
+  166  kubectl get pods
+  167  kubectl get pods -n=rajesh
+  168  kubectl describe pods rajesh -n=rajesh
+  169  clear
+  170  kubectl get pods -n=rajesh
+  171  kubectl get pods -n=rajesh -o wide
+  172  kubectl get pods -n=rajesh -o wide --show-labels
+  173  kubectl edit pod rajesh -n=rajesh
+  174  kubectl get pods -n=rajesh -o wide
+  175  kubectl get pods -n=rajesh -o wide --show-labels
+  176  clear
+  177  vi pod1.yaml
+  178  kubectl apply -f pod1.yaml -n=rajesh
+  179  kubectl get pods -n=rajesh -o wide --show-labels
+  180  kubectl create -f pod1.yaml -n=rajesh
+  181  kubectl create -f pod1.yaml
+  182  kubectl delete pod rajesh
+  183  kubectl delete -f pod1.yaml -n=rajesh
+
+
+Troubleshooting and Debugging Commands:
+  describe      Show details of a specific resource or group of resources
+
+  logs          Print the logs for a container in a pod
+  attach        Attach to a running container
+  exec          Execute a command in a container
+  port-forward  Forward one or more local ports to a pod
+  cp            Copy files and directories to and from containers
+
+  auth          Inspect authorization
+
+
+  188  kubectl apply -f pod1.yaml -n=rajesh
+  189  kubectl get pods -o wide -n=rajesh
+  190  kubectl logs rajesh -n=rajesh
+  191  curl http://10.36.0.1
+  192  kubectl logs rajesh -n=rajesh
+  193  curl http://10.36.0.1
+  194  kubectl logs rajesh -n=rajesh
+  195  curl http://10.36.0.1
+  196  kubectl logs rajesh -n=rajesh
+  197  clear
+  198  kubectl create -h
+  199  kubectl create job -h
+  200  clear
+  201  kubectl get -h
+  202  cclear
+  203  kubectl describe -h
+  204  kubectl edit -h
+  205  kubectl apply -h
+  206  clear
+  207  kubectl logs -h
+
+
+
+  209  clear
+  210  ls
+  211  kubectl get pods -n=rajesh
+  212  kubectl attach rajesh -n=rajesh
+  213  kubectl get pods -n=rajesh -o wide
+  214  nohup curl http://10.36.0.1 &
+  215  kubectl attach rajesh -n=rajesh
+  216  bg
+  217  nohup watch curl http://10.36.0.1 &
+  218  bg
+  219  clear
+  220  bg
+  221  kubectl attach rajesh -n=rajesh
+  222  clear
+  223  ls
+  224  kubectl get pods -n=rajesh
+  225  kubectl exec rajesh -n=rajesh ls
+  226  clear
+  227* kubectl exec -it rajesh -n=rajesh /bin/bash -
+  228  kubectl get pods -n=rajesh -o wide
+  229  kubectl port-forward -h
+  230  clear
+  231  kubectl port-forward --address 0.0.0.0 pod/rajesh 8888:80 -n=rajesh
+  232  ls
+  233  kubectl cp pod1.yaml rajesh:/tmp -n=rajesh
+  234  kubectl exec rajesh -n=rajesh ls /tmp
+  235  kubectl cp -h
+  236  clear
+  237  kubectl auth
+  238  kubectl auth can-i delete pod
+  239  kubectl auth can-i delete ns
+  240  history
+
